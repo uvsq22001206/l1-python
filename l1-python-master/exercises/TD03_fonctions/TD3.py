@@ -182,11 +182,12 @@ def exo8():
 def nombreBisextile(jour):
     pass
 
+
 def tempsEnDateBisextile(temps):
     pass
 
 
-def exo9(): 
+def exo9():
     temps = secondeEnTemps(1000000000)
     afficheTemps(temps)
     afficheDate(tempsEnDateBisextile(temps))
