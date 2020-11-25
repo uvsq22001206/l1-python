@@ -1,8 +1,7 @@
 # temps[0] : jours, temps[1]: minutes, temps[2]: minutes, temps[3]: secondes
 
 def tempsEnSeconde(temps):
-    """ Renvoie la valeur en seconde de temps donné \
-        comme jour, heure, minute, seconde."""
+    """ Renvoie la valeur en seconde de temps donné comme jour, heure, minute, seconde."""
     jts = temps[0] * 86400
     hts = temps[1] * 3600
     mts = temps[2] * 60
@@ -10,8 +9,7 @@ def tempsEnSeconde(temps):
 
 
 def secondeEnTemps(seconde):
-    """Renvoie le temps (jour, heure, minute, seconde) qui \
-        correspond au nombre de seconde passé en argument"""
+    """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
     stj = seconde // 86400
     sth = seconde // 3600 % 24
     stm = seconde // 60 % 60
