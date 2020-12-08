@@ -1,22 +1,49 @@
 import tkinter as tk
 import random
 
-
-def cercle(x1=random.randint(0, 400), y1=random.randint(0, 400)):
-    canvas.create_oval((x1, y1, x1 + 100, y1 + 100), fill="blue")
-
-
+CANVAS_WIDTH, CANVAS_HEIGHT = 600, 400
 root = tk.Tk()
-root.title("Mon dessin")
-button1 = tk.Button(root, text="choisir une couleur", font=("helvetica", "26"))
-button2 = tk.Button(root, text="cercle", font=("helvetica", "26"), command=cercle)
-button3 = tk.Button(root, text="carré", font=("helvetica", "26"))
-button4 = tk.Button(root, text="croix", font=("helvetica", "26"))
-button1.grid(column=1, row=0)
-button2.grid(column=0, row=1)
-button3.grid(column=0, row=2)
-button4.grid(column=0, row=3)
-canvas = tk.Canvas(root, bg="black", height=500, width=500)  # relief=tk.GROOVE, # bd=10 bordure
-canvas.grid(column=1, row=1, rowspan=3)
+root.title("Mon Dessin")
+canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg="black", relief=tk.GROOVE, bd=1)
 
+couleur = "blue"
+
+
+def choix_couleur():
+    global couleur
+    couleur = input("Choisir une couleur")
+
+
+def create_button(text, fonction, i, j):
+    bouton = tk.Button(text=text, command=fonction, font=("Helvetica", "30"), activeforeground="red", activebackground="black", padx=100)
+    bouton.grid(column=i, row=j)
+    return bouton
+
+
+def dessine_cercle():
+    x = random.randint(0, CANVAS_WIDTH-100)
+    y = random.randint(0, CANVAS_HEIGHT-100)
+    canvas.create_oval(x, y, x + 100, y + 100, fill=couleur)
+
+
+def dessine_carre():
+    x = random.randint(0, CANVAS_WIDTH-100)
+    y = random.randint(0, CANVAS_HEIGHT-100)
+    canvas.create_rectangle(x, y, x + 100, y + 100, fill=couleur)
+
+
+def dessine_croix():
+    x = random.randint(0, CANVAS_WIDTH-100)
+    y = random.randint(0, CANVAS_HEIGHT-100)
+    canvas.create_line(x, y, x + 100, y + 100, fill=couleur)
+    canvas.create_line(x+100, y, x, y+100, fill=couleur)
+
+
+cercle = create_button("Cercle", dessine_cercle, 0, 1)
+carre = create_button("Carré", dessine_carre, 0, 2)
+croix = create_button("Croix", dessine_croix, 0, 3)
+choix = create_button("Choisir une couleur", choix_couleur, 1, 0)
+
+canvas.grid(column=1, row=1, rowspan=3)
+canvas.create_oval(150, 150, 250, 250)
 root.mainloop()

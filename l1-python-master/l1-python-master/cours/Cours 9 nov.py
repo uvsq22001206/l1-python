@@ -1,16 +1,17 @@
 # Exercice
-def tri(l):
+def tri(lis):
     l_triee = []
-    for i in range(len(l)):
-        minimum = min(l)
+    for i in range(len(lis)):
+        minimum = min(lis)
         l_triee.append(minimum)
-        l.remove(minimum)
+        lis.remove(minimum)
     return l_triee
 
 
 tri([4, 13, 42, 27, 31, 17, 21])
 
 # Out[]: [4, 13, 17, 21, 27, 31, 42]
+
 
 # Exercice
 def compter_negatives(nombres):
