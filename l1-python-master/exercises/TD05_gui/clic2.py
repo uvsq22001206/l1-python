@@ -21,6 +21,7 @@ canvas = tk.Canvas(racine, width=500, height=500, bg="black")
 ligne = canvas.create_line((250, 0), (250, 500), fill="white")
 
 canvas.bind("<Button-1>", draw_new_circle)
+
 canvas.grid()
 
 racine.mainloop()
